@@ -17,11 +17,8 @@ jobs:
 
       - name: Cypress run
         uses: cypress-io/github-action@v4
-        env:
-          CYPRESS_coverage: false
         with:
           browser: chrome
-          record: true
           #TODO: Fix/finish reporting setup
       - name: Create report artifact
         if: always()
