@@ -18,6 +18,11 @@
     "@angular/platform-browser": "~13.3.0",
     "@angular/platform-browser-dynamic": "~13.3.0",
     "@angular/router": "~13.3.0",
+    "@badeball/cypress-cucumber-preprocessor": "^15.1.4",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
+    "@cucumber/cucumber": "^9.0.0",
+    "@deepakvishwakarma/cucumber-json-formatter": "^0.0.3",
+    "cypress": "^12.8.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
@@ -35,5 +40,27 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
     "typescript": "~4.6.2"
+  },
+  "cypress-cucumber-preprocessor": {
+    "stepDefinitions": [
+      "./cypress/e2e/cucumber/step_definitions/**/*.{js,ts}"
+    ],
+    "messages": {
+      "enabled": true,
+      "output": "./cypress/e2e/reports/cucumber-messages.ndjson"
+    },
+    "json": {
+      "enabled": true,
+      "output": "./cypress/e2e/reports/cucumber-messages.json",
+      "formatter": "node",
+      "args": [
+        "./node_modules/@deepakvishwakarma/cucumber-json-formatter/lib/main.js"
+      ]
+    },
+    "html": {
+      "enabled": true,
+      "output": "./cypress/e2e/reports/cucumber-report.html"
+    },
+    "filterSpecs": false
   }
 }
